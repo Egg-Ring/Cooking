@@ -47,10 +47,10 @@ fi
 solution_folder="$DIR/programmers/$nickname"
 mkdir -p "$solution_folder"
 
-problem_link="https://programmers.co.kr/learn/courses/30/lessons/$problem_number"
+problem_link="https://school.programmers.co.kr/learn/courses/30/lessons/$problem_number"
 
 # 파일 이름을 문제 이름으로 설정합니다.
-problem_name=$(curl -s -N "$problem_link" | sed -n "s/^.*<title>코딩테스트 연습 - \(.*\) \| 프로그래머스<\/title>.*$/\1/p")
+problem_name=$(curl -s -N "$problem_link" | sed -n "s/^.*<title>코딩테스트 연습 - \(.*\) \| 프로그래머스 스쿨<\/title>.*$/\1/p")
 solution_file="$solution_folder/$problem_name.py"
 
 # 닉네임 뒤에 '/' 기호와 함께 level을 표시할 수도 있습니다. 이를 나누어주어야합니다.
