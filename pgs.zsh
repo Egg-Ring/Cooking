@@ -30,9 +30,9 @@ fi
 if [[ $problem_info =~ ^[0-9]+$ ]]; then
   # 모두 숫자이면 그대로 사용합니다.
   problem_number=$problem_info
-elif [[ $problem_info =~ ^https://programmers.co.kr/learn/courses/30/lessons/[0-9]+$ ]]; then
+elif [[ $problem_info =~ ^https://school.programmers.co.kr/learn/courses/30/lessons/[0-9]+$ ]]; then
   # 링크 형식이면 맨 끝에만 떼어내 씁니다.
-  problem_number=$(echo "$problem_info" | sed -n "s/^.*https:\/\/programmers\.co\.kr\/learn\/courses\/30\/lessons\/\([0-9]*\).*$/\1/p")
+  problem_number=$(echo "$problem_info" | sed -n "s/^.*https:\/\/school\.programmers\.co\.kr\/learn\/courses\/30\/lessons\/\([0-9]*\).*$/\1/p")
 else
   # 아니면(비어있거나 숫자 아니거나 링크도 아닐 때) 뻗습니다.
   echo "문제 번호 또는 링크가 필요합니다!"
@@ -47,10 +47,10 @@ fi
 solution_folder="$DIR/programmers/$nickname"
 mkdir -p "$solution_folder"
 
-problem_link="https://programmers.co.kr/learn/courses/30/lessons/$problem_number"
+problem_link="https://school.programmers.co.kr/learn/courses/30/lessons/$problem_number"
 
 # 파일 이름을 문제 이름으로 설정합니다.
-problem_name=$(curl -s -N "$problem_link" | sed -n "s/^.*<title>코딩테스트 연습 - \(.*\) \| 프로그래머스<\/title>.*$/\1/p")
+problem_name=$(curl -s -N "$problem_link" | sed -n "s/^.*<title>코딩테스트 연습 - \(.*\) \| 프로그래머스 스쿨<\/title>.*$/\1/p")
 solution_file="$solution_folder/$problem_name.py"
 
 # 닉네임 뒤에 '/' 기호와 함께 level을 표시할 수도 있습니다. 이를 나누어주어야합니다.
