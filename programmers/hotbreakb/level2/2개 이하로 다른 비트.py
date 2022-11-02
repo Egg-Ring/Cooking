@@ -14,11 +14,15 @@ def solution(numbers):
 
 
 def get_min_number_of_different_two_bits(number):
-    result = number
-    while True:
-        result += 1
-        if bin(number ^ result).count('1') <= 2:
-            return result
+    binary = '0' + bin(number)[2:]
+    binary_list = list(binary)
+    index_zero = binary.rfind('0')
+    binary_list[index_zero] = '1'
+
+    if number & 1 == 1:
+        binary_list[index_zero + 1] = '0'
+
+    return int(''.join(binary_list), 2)
 
 
 if __name__ == "__main__":
