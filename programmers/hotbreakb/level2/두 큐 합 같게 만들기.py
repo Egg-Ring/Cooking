@@ -6,7 +6,7 @@
 #  Created by hotbreakb on 2022/11/03.
 #
 
-from typing import Deque
+from collections import deque
 
 
 def solution(queue1, queue2):
