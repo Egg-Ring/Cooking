@@ -13,9 +13,8 @@ def solution(msg: str) -> list:
 
     string = ""
     index = 0
-    while index < len(msg):
-        string += msg[index]
-        index += 1
+    for char in msg:
+        string += char
         # key 값이 있으면 다시 반복문으로 직행
         if dictionary.get(string) is not None:
             continue
