@@ -12,7 +12,6 @@ def solution(msg: str) -> list:
     dictionary = {chr(number + 64): number for number in range(1, 27)}
 
     string = ""
-    index = 0
     for char in msg:
         string += char
         # key 값이 있으면 다시 반복문으로 직행
