@@ -15,7 +15,7 @@ def solution(msg: str) -> list:
     for char in msg:
         string += char
         # key 값이 있으면 다시 반복문으로 직행
-        if dictionary.get(string) is not None:
+        if string in dictionary:
             continue
 
         # 새롭게 넣은 알파벳을 제외한 문자의 value값 할당
