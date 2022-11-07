@@ -21,8 +21,8 @@ def solution(msg: str) -> list:
         # 새롭게 넣은 알파벳을 제외한 문자의 value값 할당
         answer.append(dictionary[string[:-1]])
 
-        # key가 없는 새로운 문자는 마지막으로 갱신한 숫자에서 1 더한 값으로 할당
-        dictionary[string] = list(dictionary.items())[-1][1] + 1
+        # key가 없는 새로운 문자는 딕셔너리 크기에 1 더한 값으로 할당
+        dictionary[string] = len(dictionary) + 1
 
         # 마지막 알파벳으로 다시 대체
         string = string[-1]
