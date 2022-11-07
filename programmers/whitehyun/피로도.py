@@ -7,9 +7,11 @@
 #
 
 max_count = 0
+used = []
+dungeons = []
 
 
-def recursion(length: int, fatigue: int, dungeons: list, used: list, count: int):
+def recursion(length: int, fatigue: int, count: int):
     global max_count
 
     if length == len(dungeons):
@@ -21,19 +23,21 @@ def recursion(length: int, fatigue: int, dungeons: list, used: list, count: int)
         if used[i] == False:
             used[i] = True
             if fatigue >= dungeons[i][0]:
-                recursion(
-                    length + 1, fatigue - dungeons[i][1], dungeons, used, count + 1
-                )
+                recursion(length + 1, fatigue - dungeons[i][1], count + 1)
             else:
-                recursion(length + 1, fatigue, dungeons, used, count)
+                recursion(length + 1, fatigue, count)
             used[i] = False
 
 
-def solution(k: int, dungeons: list) -> int:
+def solution(k: int, _dungeons: list) -> int:
     global max_count
+    global used
+    global dungeons
 
-    used = [False] * len(dungeons)
-    recursion(0, k, dungeons, used, 0)
+    dungeons = _dungeons
+    used = [False] * len(_dungeons)
+
+    recursion(0, k, 0)
 
     return max_count
 
